@@ -44,7 +44,6 @@ class TPHATE(BaseEstimator):
             knn = k
         if a is not None:
             decay = a
-        print(a, decay, smooth_window)
         self.n_components = n_components
         self.decay = decay
         self.knn = knn
@@ -67,6 +66,7 @@ class TPHATE(BaseEstimator):
         self.optimal_t = None
         self.autocorr_op = None
         self.diff_op = None
+        self.dropoff = None
 
         if (alpha_decay is True and decay is None) or (
             alpha_decay is False and decay is not None
@@ -829,6 +829,7 @@ class TPHATE(BaseEstimator):
         A_feat = np.mean(A_feat, axis=1) # average over features to get one function
         acf = np.convolve(A_feat, np.ones(smooth_window), 'same') / smooth_window # rolling average
         dropoff = np.where(acf  < 0)[0][0] # timepoint where rolling average drops off
+        self.dropoff = dropoff
         # Spread out the autocorr function
         M = np.zeros((n_samples, n_samples))
         for i in range(n_samples):
