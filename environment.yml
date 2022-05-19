@@ -124,4 +124,4 @@ dependencies:
     - tasklogger==1.1.2
     - threadpoolctl==3.1.0
     - wrapt==1.14.1
-prefix: /Users/elb/opt/anaconda3/envs/tphate_env
+prefix: /gpfs/milgram/project/turk-browne/users/elb77/conda_envs/tphate_env
