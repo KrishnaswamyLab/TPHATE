@@ -675,7 +675,11 @@ class TPHATE(BaseEstimator):
         if self.n_landmark is None or X.shape[0] <= self.n_landmark:
             n_landmark = None
         else:
-            n_landmark = self.n_landmark
+            _logger.info(
+                f"Landmarking not available; setting n_landmark to {X.shape[0]}"
+            )
+            self.n_landmark = X.shape[0]
+            n_landmark = None
 
         if self.graph is not None and update_graph:
             self._update_graph(X, precomputed, n_pca, n_landmark)
@@ -820,16 +824,18 @@ class TPHATE(BaseEstimator):
             smooth_window = self.smooth_window
         if smooth_window is None:
             raise ValueError('smooth_window not set')
-
+        
         n_samples, n_features = self.X.shape
         # calculate and store the AC functions for each feature separately
-        A_feat = np.empty_like(self.X) 
+        A_feat = np.empty((n_samples,n_features))
         for f in range(n_features):
             A_feat[:,f] = sm.tsa.acf(self.X[:,f], fft=False, nlags=n_samples-1)
         A_feat = np.mean(A_feat, axis=1) # average over features to get one function
         acf = np.convolve(A_feat, np.ones(smooth_window), 'same') / smooth_window # rolling average
         dropoff = np.where(acf  < 0)[0][0] # timepoint where rolling average drops off
         self.dropoff = dropoff
+        with _logger.task("Autocorr kernel"):
+            _logger.info(f"Dropoff point: {self.dropoff}")
         # Spread out the autocorr function
         M = np.zeros((n_samples, n_samples))
         for i in range(n_samples):
