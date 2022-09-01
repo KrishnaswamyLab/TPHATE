@@ -830,7 +830,7 @@ class TPHATE(BaseEstimator):
         A_feat = np.empty((n_samples,n_features))
         for f in range(n_features):
             A_feat[:,f] = sm.tsa.acf(self.X[:,f], fft=False, nlags=n_samples-1)
-        A_feat = np.mean(A_feat, axis=1) # average over features to get one function
+        A_feat = np.nanmean(A_feat, axis=1) # average over features to get one function
         acf = np.convolve(A_feat, np.ones(smooth_window), 'same') / smooth_window # rolling average
         dropoff = np.where(acf  < 0)[0][0] # timepoint where rolling average drops off
         self.dropoff = dropoff
