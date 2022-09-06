@@ -146,9 +146,14 @@ class TPHATE(BaseEstimator):
                 "Combining PHATE operator and autocorr operator")
         if self.diff_op is None:
             if self.phate_diffop is not None and self.autocorr_op is not None:
-                self.diff_op = np.matmul(self.phate_diffop.T, self.autocorr_op)
+                if np.sum(self.autocorr_op) != 0:
+                    self.diff_op = np.matmul(self.phate_diffop.T, self.autocorr_op)
+                else:
+                    self.diff_op = self.phate_diffop
+                    _logger.info(
+                "No autocorrelation measured; converging with PHATE")
             else:
-                raise NotFittedError("This PHATE instance is not fitted yet. Call "
+                raise NotFittedError("This TPHATE instance is not fitted yet. Call "
                 "'fit' with appropriate arguments before "
                 "using this method.")
         return
