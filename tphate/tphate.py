@@ -829,8 +829,8 @@ class TPHATE(BaseEstimator):
         # calculate and store the AC functions for each feature separately
         A_feat = np.empty((n_samples,n_features))
         for f in range(n_features):
-            A_feat[:,f] = sm.tsa.acf(self.X[:,f], fft=False, nlags=n_samples-1)
-        A_feat = np.mean(A_feat, axis=1) # average over features to get one function
+            A_feat[:,f] = sm.tsa.acf(self.X[:,f], fft=False, nlags=n_samples-1, missing='drop')
+        A_feat = np.nanmean(A_feat, axis=1) # average over features to get one function
         acf = np.convolve(A_feat, np.ones(smooth_window), 'same') / smooth_window # rolling average
         dropoff = np.where(acf  < 0)[0][0] # timepoint where rolling average drops off
         self.dropoff = dropoff
@@ -848,6 +848,9 @@ class TPHATE(BaseEstimator):
             if np.sum(row) == 0: # this should never be true
                 continue
             row[:] /= np.sum(row)
+        temp = M[0, 1]
+        M[0, 1] = M[1, 0]
+        M[1, 0] = temp
         return M 
 
     def _calculate_potential(self, t=None, t_max=100, plot_optimal_t=False, ax=None):
