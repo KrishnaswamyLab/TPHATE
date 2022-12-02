@@ -1,4 +1,4 @@
-name: /gpfs/milgram/project/casey/elb77/conda_envs/tphate_env
+name: tphate_env_cap
 channels:
   - conda-forge
   - intel
@@ -6,7 +6,6 @@ channels:
   - bioconda
 dependencies:
   - _libgcc_mutex=0.1
-  - _openmp_mutex=4.5
   - appnope=0.1.3
   - argon2-cffi=21.1.0
   - asttokens=2.0.5
@@ -14,7 +13,6 @@ dependencies:
   - attrs=21.4.0
   - backcall=0.2.0
   - binutils_impl_linux-64=2.36.1
-  - binutils_linux-64=2.36
   - blas=1.0
   - bleach=4.1.0
   - c-ares=1.18.1
@@ -33,21 +31,15 @@ dependencies:
   - expat=2.4.4
   - fontconfig=2.13.1
   - freetype=2.12.1
-  - gcc_impl_linux-64=7.5.0
-  - gcc_linux-64=7.5.0
   - gettext=0.21.0
   - glib=2.69.1
   - gst-plugins-base=1.14.0
   - gstreamer=1.14.0
-  - gxx_impl_linux-64=7.5.0
-  - gxx_linux-64=7.5.0
   - h5py=3.1.0
   - hdf5=1.10.6
   - icu=58.2
-  - impi_rt=2021.6.0
   - importlib-metadata=4.2.0
   - importlib_metadata=1.5.0
-  - intel-openmp=2022.0.1
   - intelpython=2022.1.0
   - ipykernel=5.3.4
   - ipython=7.16.1
@@ -65,22 +57,17 @@ dependencies:
   - jupyterlab_pygments=0.1.2
   - jupyterlab_widgets=1.0.0
   - kernel-headers_linux-64=2.6.32
-  - keyutils=1.6.1
   - krb5=1.19.3
   - ld_impl_linux-64=2.36.1
   - libblas=3.9.0
   - libcblas=3.9.0
   - libcurl=7.83.1
   - libcxx=14.0.3
-  - libcxxabi=14.0.3
   - libedit=3.1.20191231
   - libev=4.33
   - libffi=3.3
-  - libgcc-ng=12.1.0
   - libgfortran=3.0.0
-  - libgfortran-ng=7.5.0
   - libgfortran4=7.5.0
-  - libgomp=12.1.0
   - libgpuarray=0.7.6
   - libiconv=1.16
   - libnghttp2=1.47.0
@@ -88,7 +75,6 @@ dependencies:
   - libpng=1.6.37
   - libsodium=1.0.18
   - libssh2=1.10.0
-  - libstdcxx-ng=12.1.0
   - libuuid=1.0.3
   - libxcb=1.13
   - libxml2=2.9.12
@@ -100,7 +86,6 @@ dependencies:
   - markupsafe=2.0.1
   - matplotlib-inline=0.1.2
   - mistune=0.8.4
-  - mkl=2022.0.1
   - more-itertools=8.14.0
   - mpi=1.0
   - mpi4py=3.0.0
@@ -223,4 +208,4 @@ dependencies:
     - websocket-client==1.3.1
     - wrapt==1.14.1
     - zipp==3.6.0
-prefix: /gpfs/milgram/project/casey/elb77/conda_envs/tphate_env
+prefix: tphate_env_cap

@@ -306,6 +306,8 @@ class TPHATE(BaseEstimator):
             If None, alpha decaying kernel is not used
         n_landmark : int, optional, default: 2000
             number of landmarks to use in fast PHATE
+            landmarking is not suggested with TPHATE as it reduces the number of samples
+            and breaks temporal continuity
         t : int, optional, default: 'auto'
             power to which the diffusion operator is powered.
             This sets the level of diffusion. If 'auto', t is selected
@@ -362,25 +364,25 @@ class TPHATE(BaseEstimator):
         a : Deprecated for `decay`
         Examples
         --------
-        >>> import phate
+        >>> import tphate
         >>> import matplotlib.pyplot as plt
         >>> tree_data, tree_clusters = phate.tree.gen_dla(n_dim=50, n_branch=5,
         ...                                               branch_length=50)
         >>> tree_data.shape
         (250, 50)
-        >>> phate_operator = phate.PHATE(k=5, a=20, t=150)
-        >>> tree_phate = phate_operator.fit_transform(tree_data)
+        >>> tphate_operator = tphate.TPHATE(k=5, a=20, t=150)
+        >>> tree_phate = tphate_operator.fit_transform(tree_data)
         >>> tree_phate.shape
         (250, 2)
-        >>> phate_operator.set_params(n_components=10)
-        PHATE(a=20, alpha_decay=None, k=5, knn_dist='euclidean', mds='metric',
+        >>> tphate_operator.set_params(n_components=10)
+        TPHATE(a=20, alpha_decay=None, k=5, knn_dist='euclidean', mds='metric',
            mds_dist='euclidean', n_components=10, n_jobs=1, n_landmark=2000,
            n_pca=100, njobs=None, potential_method='log', random_state=None, t=150,
            verbose=1)
-        >>> tree_phate = phate_operator.transform()
-        >>> tree_phate.shape
+        >>> tree_tphate = tphate_operator.transform()
+        >>> tree_tphate.shape
         (250, 10)
-        >>> # plt.scatter(tree_phate[:,0], tree_phate[:,1], c=tree_clusters)
+        >>> # plt.scatter(tree_tphate[:,0], tree_tphate[:,1], c=tree_clusters)
         >>> # plt.show()
         Returns
         -------
@@ -523,7 +525,7 @@ class TPHATE(BaseEstimator):
             If given, sets the distance metric for MDS
         """
         warnings.warn(
-            "PHATE.reset_mds is deprecated. " "Please use PHATE.set_params in future.",
+            "TPHATE.reset_mds is deprecated. " "Please use TPHATE.set_params in future.",
             FutureWarning,
         )
         self.set_params(**kwargs)
@@ -543,8 +545,8 @@ class TPHATE(BaseEstimator):
             operator is used to compute the diffusion potential
         """
         warnings.warn(
-            "PHATE.reset_potential is deprecated. "
-            "Please use PHATE.set_params in future.",
+            "TPHATE.reset_potential is deprecated. "
+            "Please use TPHATE.set_params in future.",
             FutureWarning,
         )
         self.set_params(**kwargs)
@@ -659,20 +661,20 @@ class TPHATE(BaseEstimator):
             n_samples distance or affinity matrix
         Returns
         -------
-        phate_operator : PHATE
+        tphate_operator : TPHATE
         The estimator object
         """
         X, n_pca, precomputed, update_graph = self._parse_input(X)
 
         if precomputed is None:
             _logger.info(
-                "Running PHATE on {} observations and {} variables.".format(
+                "Running TPHATE on {} observations and {} variables.".format(
                     X.shape[0], X.shape[1]
                 )
             )
         else:
             _logger.info(
-                "Running PHATE on precomputed {} matrix with {} observations.".format(
+                "Running TPHATE on precomputed {} matrix with {} observations.".format(
                     precomputed, X.shape[0]
                 )
             )
@@ -681,7 +683,7 @@ class TPHATE(BaseEstimator):
             n_landmark = None
         else:
             _logger.info(
-                f"Landmarking not available; setting n_landmark to {X.shape[0]}"
+                f"Landmarking not recommended; setting n_landmark to {X.shape[0]}"
             )
             self.n_landmark = X.shape[0]
             n_landmark = None
@@ -719,8 +721,8 @@ class TPHATE(BaseEstimator):
         ----------
         X : array, optional, shape=[n_samples, n_features]
             input data with `n_samples` samples and `n_dimensions`
-            dimensions. Not required, since PHATE does not currently embed
-            cells not given in the input matrix to `PHATE.fit()`.
+            dimensions. Not required, since TPHATE does not currently embed
+            cells not given in the input matrix to `TPHATE.fit()`.
             Accepted data types: `numpy.ndarray`,
             `scipy.sparse.spmatrix`, `pd.DataFrame`, `anndata.AnnData`. If
             `knn_dist` is 'precomputed', `data` should be a n_samples x
@@ -736,19 +738,19 @@ class TPHATE(BaseEstimator):
         Returns
         -------
         embedding : array, shape=[n_samples, n_dimensions]
-        The cells embedded in a lower dimensional space using PHATE
+        The cells embedded in a lower dimensional space using TPHATE
         """
         if self.graph is None:
             raise NotFittedError(
-                "This PHATE instance is not fitted yet. Call "
+                "This TPHATE instance is not fitted yet. Call "
                 "'fit' with appropriate arguments before "
                 "using this method."
             )
         elif X is not None and not utils.matrix_is_equivalent(X, self.X):
             # fit to external data
             warnings.warn(
-                "Pre-fit PHATE should not be used to transform a "
-                "new data matrix. Please fit PHATE to the new"
+                "Pre-fit TPHATE should not be used to transform a "
+                "new data matrix. Please fit TPHATE to the new"
                 " data by running 'fit' with the new data.",
                 RuntimeWarning,
             )
@@ -799,12 +801,12 @@ class TPHATE(BaseEstimator):
             `scipy.sparse.spmatrix`, `pd.DataFrame`, `anndata.AnnData` If
             `knn_dist` is 'precomputed', `data` should be a n_samples x
             n_samples distance or affinity matrix
-        kwargs : further arguments for `PHATE.transform()`
-            Keyword arguments as specified in :func:`~phate.PHATE.transform`
+        kwargs : further arguments for `TPHATE.transform()`
+            Keyword arguments as specified in :func:`~tphate.TPHATE.transform`
         Returns
         -------
         embedding : array, shape=[n_samples, n_dimensions]
-            The cells embedded in a lower dimensional space using PHATE
+            The cells embedded in a lower dimensional space using TPHATE
         """
         with _logger.task("TPHATE"):
             self.fit(X)
@@ -908,7 +910,7 @@ class TPHATE(BaseEstimator):
         Determines the Von Neumann entropy of the diffusion affinities
         at varying levels of `t`. The user should select a value of `t`
         around the "knee" of the entropy curve.
-        We require that 'fit' stores the value of `PHATE.diff_op`
+        We require that 'fit' stores the value of `TPHATE.diff_op`
         in order to calculate the Von Neumann entropy.
         Parameters
         ----------
