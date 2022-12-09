@@ -1,4 +1,4 @@
-name: /gpfs/milgram/project/casey/elb77/conda_envs/tphate_env
+name: tphate_env
 channels:
   - conda-forge
   - intel
@@ -223,5 +223,3 @@ dependencies:
     - websocket-client
     - wrapt
     - zipp
-prefix: /gpfs/milgram/project/casey/elb77/conda_envs/tphate_env
-
