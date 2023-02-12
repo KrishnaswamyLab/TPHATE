@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "tphate"
+version = "0.1.0"
+description = "Temporal PHATE (TPHATE) is a python package for learning robust manifold representations of timeseries data with high temporal autocorrelation."
+authors = ["Erica Busch <erica.busch@yale.edu>"]
+license = "GPLv3"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+statsmodels = "^0.13.5"
+pytest = "^7.2.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

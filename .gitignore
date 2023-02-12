@@ -1,5 +1,13 @@
+# Python
 *pycache*
 *pyc
 __pycache__/* 
+
+# Jupyter Notebooks
 */.ipynb_checkpoints/*
+
+# Poetry
+poetry.lock
+
+# Mac OS
 *DS_STORE*
