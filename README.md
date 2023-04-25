@@ -4,4 +4,4 @@ Temporal PHATE (TPHATE) is a python package for learning robust manifold represe
 
 ## Installation
 
-`poetry add tphate`
+`pip install tphate`
