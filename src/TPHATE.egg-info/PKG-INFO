@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: TPHATE
+Version: 0.0.1
+Summary: Temporal PHATE (TPHATE) is a python package for learning robust manifold representations of timeseries data with high temporal autocorrelation.
+Author-email: Erica Busch <ericalindseybusch@gmail.com>
+Project-URL: Homepage, https://github.com/KrishnaswamyLab/TPHATE/
+Project-URL: Bug Tracker, https://github.com/KrishnaswamyLab/TPHATE/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+## Quick Start
+If you would like to get started using T-PHATE, check out our [guided example](https://github.com/KrishnaswamyLab/TPHATE/blob/main/example/usage.ipynb).
+
+
+## Temporal PHATE
+
+Temporal PHATE (T-PHATE) is a python package for learning robust manifold representations of timeseries data with high temporal autocorrelation. TPHATE does so with a dual-kernel approach, estimating the first view as an affinity matrix based on PHATE manifold geometry, and the second view as summarizing the transitional probability between two timepoints based on the autocorrelation of the signal. For more information, see our [paper](https://www.nature.com/articles/s43588-023-00419-0), "Multi-view manifold learning of human brain-state trajectories", in Nature Computational Science (March 2023).
+
+
+## Installation
+
+`pip install tphate`
