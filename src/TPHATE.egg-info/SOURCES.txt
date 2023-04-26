@@ -13,5 +13,6 @@ src/tphate/matrix.py
 src/tphate/mds.py
 src/tphate/tphate.py
 src/tphate/utils.py
+src/tphate/version.py
 src/tphate/vne.py
 tests/test_tphate.py

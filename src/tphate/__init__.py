@@ -1,1 +1,2 @@
-__version__ = '0.1.0'
+from .tphate import TPHATE
+from .version import __version__
