@@ -1,3 +1,5 @@
+[![PyPI version](https://badge.fury.io/py/tphate.svg)](https://badge.fury.io/py/tphate) [![DOI](https://zenodo.org/badge/493851738.svg)](https://zenodo.org/badge/latestdoi/493851738)] 
+
 ## Quick Start
 If you would like to get started using T-PHATE, check out our [guided example](https://github.com/KrishnaswamyLab/TPHATE/blob/main/example/usage.ipynb).
 
@@ -21,3 +23,4 @@ Busch, et al. **Multi-view manifold learning of human brain-state trajectories**
 ## Installation
 
 `pip install tphate`
+
