@@ -1,0 +1,27 @@
+[build-system]
+requires = [
+	"setuptools>=61.0", 
+	"statsmodels>=0.13.5",
+	"pytest>=7.2.1",
+	"phate"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "TPHATE"
+version = "0.0.3"
+authors = [
+  { name="Erica Busch", email="ericalindseybusch@gmail.com" },
+]
+description = "Temporal PHATE (TPHATE) is a python package for learning robust manifold representations of timeseries data with high temporal autocorrelation."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/KrishnaswamyLab/TPHATE/"
+"Bug Tracker" = "https://github.com/KrishnaswamyLab/TPHATE/issues"
