@@ -3,13 +3,25 @@ requires = [
 	"setuptools>=61.0", 
 	"statsmodels>=0.13.5",
 	"pytest>=7.2.1",
-	"phate"
+	"phate",
+	"numpy>=1.16.0",
+	"scipy>=1.1.0",
+	"scikit-learn>=0.20.0",
+	"future",
+	"tasklogger>=1.0",
+	"graphtools>=1.5.3",
+	"scprep>=1.0",
+	"matplotlib>=3.0",
+	"s_gd2>=1.8.1",
+	"pygsp",
+	"abc",
+	"Deprecated"
 ]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "TPHATE"
-version = "0.0.3"
+version = "0.0.4"
 authors = [
   { name="Erica Busch", email="ericalindseybusch@gmail.com" },
 ]
