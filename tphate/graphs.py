@@ -490,36 +490,6 @@ class kNNGraph(DataGraph):
                 #     K= K.tocsr()
         return K
 
-    # def generate_autocorrelation_view(self, smooth_window=None):
-    #     print(f"generating autocorrelation view; data of shape {self.data.shape}")
-        
-    #     if smooth_window is None:
-    #         smooth_window = self.smooth_window
-    #     if smooth_window is None:
-    #         raise ValueError('time transition smooth_window not set')
-
-    #     n_samples, n_features = self.data.shape
-    #     # calculate and store the AC functions for each feature separately
-    #     A_feat = np.empty_like(self.data) 
-    #     for f in range(n_features):
-    #         A_feat[:,f] = sm.tsa.acf(self.data[:,f], fft=False, nlags=n_samples-1)
-    #     A_feat = np.mean(A_feat, axis=1) # average over features to get one function
-    #     acf = np.convolve(A_feat, np.ones(smooth_window), 'same') / smooth_window # rolling average
-    #     dropoff = np.where(acf  < 0)[0][0] # timepoint where rolling average drops off
-    #     # Spread out the autocorr function
-    #     M = np.zeros((n_samples, n_samples))
-    #     for i in range(n_samples):
-    #         for j in range(n_samples):
-    #             if 0 < abs(i-j) < dropoff:
-    #                 M[i,j]=acf[abs(i-j)]
-    #                 M[j,i]=acf[abs(i-j)]
-    #     # row normalize to turn to probabilities
-    #     for row in M:
-    #         if np.sum(row) == 0: # this should never be true
-    #             continue
-    #         row[:] /= np.sum(row)
-    #     return M 
-
 
 class LandmarkGraph(DataGraph):
     """Landmark graph

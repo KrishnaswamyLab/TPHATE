@@ -1,12 +1,13 @@
 [build-system]
 requires = [
 	"setuptools>=61.0", 
+	"wheel",
 	"statsmodels>=0.13.5",
 	"pytest>=7.2.1",
 	"phate",
 	"numpy>=1.16.0",
 	"scipy>=1.1.0",
-	"scikit-learn>=0.20.0",
+	"scikit-learn==0.24",
 	"future",
 	"tasklogger>=1.0",
 	"graphtools>=1.5.3",
@@ -14,14 +15,13 @@ requires = [
 	"matplotlib>=3.0",
 	"s_gd2>=1.8.1",
 	"pygsp",
-	"abc",
 	"Deprecated"
 ]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "TPHATE"
-version = "0.0.4"
+version = "0.1"
 authors = [
   { name="Erica Busch", email="ericalindseybusch@gmail.com" },
 ]
@@ -30,7 +30,7 @@ readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: GNU General Public License (GPL)",
     "Operating System :: OS Independent",
 ]
 

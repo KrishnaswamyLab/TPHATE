@@ -67,6 +67,7 @@ class TPHATE(BaseEstimator):
         self.autocorr_op = None
         self.diff_op = None
         self.dropoff = None
+        self.a = None
 
         if (alpha_decay is True and decay is None) or (
             alpha_decay is False and decay is not None
@@ -78,6 +79,7 @@ class TPHATE(BaseEstimator):
             )
             if not alpha_decay:
                 self.decay = None
+                self.alpha_decay = None
 
         if njobs is not None:
             warnings.warn(
