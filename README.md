@@ -1,7 +1,7 @@
 [![PyPI version](https://badge.fury.io/py/tphate.svg)](https://badge.fury.io/py/tphate) [![DOI](https://zenodo.org/badge/493851738.svg)](https://zenodo.org/badge/latestdoi/493851738)
 
 ## Quick Start
-If you would like to get started using T-PHATE, check out our [guided example](https://github.com/KrishnaswamyLab/TPHATE/blob/main/test/usage.ipynb).
+If you would like to get started using T-PHATE, check out our example below.
 
 If you have loaded a data matrix `data` in python (with samples on rows, features on columns, where you believe the samples are non-independent), you can run TPHATE as follows:
 
