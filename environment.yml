@@ -1,9 +1,0 @@
-name: tphate_simple
-channels:
-  - defaults
-dependencies:
-  - python=3.6.13
-  - statsmodels
-  - pip=21.2.2
-  - pip:
-      - phate

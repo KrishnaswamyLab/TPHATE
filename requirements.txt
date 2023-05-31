@@ -1,0 +1,7 @@
+numpy
+scipy
+graphtools
+phate
+scikit-learn
+tasklogger
+joblib
