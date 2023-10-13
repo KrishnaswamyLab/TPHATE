@@ -793,7 +793,7 @@ class BaseGraph(with_metaclass(abc.ABCMeta, Base)):
             import igraph as ig
         except ImportError:  # pragma: no cover
             raise ImportError(
-                "Please install igraph with " "`pip install --user python-igraph`."
+                "Please install igraph with " "`pip install --user igraph`."
             )
         try:
             W = self.W
