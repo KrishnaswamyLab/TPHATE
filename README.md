@@ -1,4 +1,5 @@
-[![PyPI version](https://badge.fury.io/py/tphate.svg)](https://badge.fury.io/py/tphate) [![DOI](https://zenodo.org/badge/493851738.svg)](https://zenodo.org/badge/latestdoi/493851738)
+[![PyPI version](https://badge.fury.io/py/tphate.svg)](https://badge.fury.io/py/tphate)[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14907314.svg)](https://doi.org/10.5281/zenodo.14907314)
+
 
 ## Quick Start
 If you would like to get started using T-PHATE, check out our example below.
