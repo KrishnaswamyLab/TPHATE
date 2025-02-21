@@ -1,4 +1,4 @@
-[![PyPI version](https://badge.fury.io/py/tphate.svg)](https://badge.fury.io/py/tphate)[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14907314.svg)](https://doi.org/10.5281/zenodo.14907314)
+[![PyPI version](https://badge.fury.io/py/TPHATE.svg)](https://badge.fury.io/py/TPHATE)[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14907314.svg)](https://doi.org/10.5281/zenodo.14907314)
 
 
 ## Quick Start
