@@ -35,7 +35,6 @@ setup(
     author_email="erica.busch@yale.edu",
     packages=find_packages(),
     python_requires=">=3.7",
-    license="GNU General Public License Version 2",
     install_requires=install_requires,
     long_description=readme,
     long_description_content_type="text/markdown",
