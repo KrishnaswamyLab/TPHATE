@@ -12,7 +12,6 @@ import statsmodels.api as sm
 import numbers
 import warnings
 import tasklogger
-
 from . import matrix, utils
 from .base import DataGraph
 
@@ -461,33 +460,9 @@ class kNNGraph(DataGraph):
                 K.data = np.exp(-1 * np.power(K.data, self.decay))
                 # handle nan
                 K.data = np.where(np.isnan(K.data), 1, K.data)
-                # TODO: should we zero values that are below thresh?
-                #K.data[K.data < self.thresh] = 0
                 K = K.tocoo()
                 K.eliminate_zeros()
                 K = K.tocsr()
-                #print("Removed combination here")
-                # if self.smooth_window is not None:
-                #     if sparse.issparse(K):
-                #         K = K.toarray()
-                #     print(f"K before combo : {K.shape} , {K[0,:10]}")
-                #     P_transition = self.generate_autocorrelation_view(self.smooth_window)
-                #     print(f"P_trans: {P_transition[0,:10]}")
-                #     K = np.matmul(np.matrix(K).T, P_transition)
-                #     #K = np.matmul(P_transition.T, np.matrix(K) )
-                #     # now do the exp ssteps?
-                #     print("HOLD THE BOAT HERE ________________ ")
-                #     # K = np.linalg.matrix_power(K, t)
-                #     # K = np.log(K + 1e-7)
-                #     # K = np.nan_to_num(K, nan=0.0).T
-                #     # print(f"K after steps : {K.shape} , {K[0,:10]}")
-
-                #     #K = np.exp(-1 * np.power(K, self.decay))
-                #     K = sparse.csr_matrix(K)
-                #     # to eliminate zeros?
-                #     K = K.tocoo()
-                #     K.eliminate_zeros()
-                #     K= K.tocsr()
         return K
 
 

@@ -4,7 +4,6 @@ from scipy import sparse
 import pickle
 import pygsp
 import tasklogger
-
 from . import base, graphs
 
 _logger = tasklogger.get_tasklogger("graphtools")

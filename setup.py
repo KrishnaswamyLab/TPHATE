@@ -8,7 +8,7 @@ install_requires = [
     "phate",
     "numpy>=1.16.0",
     "scipy>=1.1.0",
-    "scikit-learn==0.24",
+    "scikit-learn>=0.24",
     "future",
     "tasklogger>=1.0",
     "graphtools>=1.5.3",

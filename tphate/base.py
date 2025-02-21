@@ -7,7 +7,6 @@ import pygsp
 from inspect import signature
 from sklearn.decomposition import PCA, TruncatedSVD
 from sklearn.preprocessing import normalize
-from sklearn.utils.graph import graph_shortest_path
 from scipy import sparse
 import warnings
 import numbers
@@ -227,8 +226,6 @@ class Data(Base):
 
         If data is dense, uses randomized PCA. If data is sparse, uses
         randomized SVD.
-        TODO: should we subtract and store the mean?
-        TODO: Fix the rank estimation so we do not compute the full SVD.
 
         Returns
         -------
@@ -902,8 +899,9 @@ class BaseGraph(with_metaclass(abc.ABCMeta, Base)):
                 "Expected `distance` in ['constant', 'data', 'affinity']. "
                 "Got {}".format(distance)
             )
-
-        P = graph_shortest_path(D, method=method)
+        P = graph
+        P=sparse.csgraph.shortest_path(D,method=method)
+        #P = graph_shortest_path(D, method=method)
         # symmetrize for numerical error
         P = (P + P.T) / 2
         # sklearn returns 0 if no path exists

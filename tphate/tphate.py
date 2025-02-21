@@ -58,7 +58,7 @@ class TPHATE(BaseEstimator):
         self.random_state = random_state
         self.kwargs = kwargs
         self.smooth_window = smooth_window
-
+        self.alpha_decay = alpha_decay
         self.graph = None
         self._diff_potential = None
         self.embedding = None

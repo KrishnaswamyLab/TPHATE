@@ -7,7 +7,7 @@ requires = [
 	"phate",
 	"numpy>=1.16.0",
 	"scipy>=1.1.0",
-	"scikit-learn==0.24",
+	"scikit-learn>=0.24",
 	"future",
 	"tasklogger>=1.0",
 	"graphtools>=1.5.3",
@@ -21,7 +21,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "TPHATE"
-version = "0.1"
+version = "0.2"
 authors = [
   { name="Erica Busch", email="ericalindseybusch@gmail.com" },
 ]
