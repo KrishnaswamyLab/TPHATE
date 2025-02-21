@@ -69,6 +69,8 @@ class TPHATE(BaseEstimator):
         self.dropoff = None
         self.a = None
         self.k = None
+        self.njobs=n_jobs
+        self.potential_method=potential_method
 
         if (alpha_decay is True and decay is None) or (
             alpha_decay is False and decay is not None

@@ -15,6 +15,7 @@ import tasklogger
 from . import matrix, utils
 from .base import DataGraph
 
+
 _logger = tasklogger.get_tasklogger("graphtools")
 
 
