@@ -1,7 +1,6 @@
 # author: Daniel Burkhardt <daniel.burkhardt@yale.edu>
 # (C) 2017 Krishnaswamy Lab GPLv2
 
-from __future__ import print_function, division
 import numpy as np
 from scipy.linalg import svd
 

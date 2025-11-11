@@ -1,4 +1,3 @@
-from __future__ import print_function, division, absolute_import
 from .api import Graph
 from . import graphs, utils, base, vne, mds
 import tasklogger
@@ -13,8 +12,6 @@ import statsmodels.api as sm
 _logger = tasklogger.get_tasklogger("graphtools")
 
 class TPHATE(BaseEstimator):
-
-
     def __init__(
         self,
         n_components=2,

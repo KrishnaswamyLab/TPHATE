@@ -1,17 +1,14 @@
 [build-system]
 requires = [
-	"setuptools>=61.0", 
+	"setuptools>=61.0",
 	"wheel",
 	"statsmodels>=0.13.5",
 	"pytest>=7.2.1",
-	"phate",
 	"numpy>=1.16.0",
 	"scipy>=1.1.0",
 	"scikit-learn>=0.24",
-	"future",
 	"tasklogger>=1.0",
 	"graphtools>=1.5.3",
-	"scprep>=1.0",
 	"matplotlib>=3.0",
 	"s_gd2>=1.8.1",
 	"pygsp",
@@ -21,17 +18,31 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "TPHATE"
-version = "1.1"
+version = "1.2.1"
 authors = [
   { name="Erica Busch", email="ericalindseybusch@gmail.com" },
 ]
 description = "Temporal PHATE (TPHATE) is a python package for learning robust manifold representations of timeseries data with high temporal autocorrelation."
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: GNU General Public License (GPL)",
     "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "statsmodels>=0.13.5",
+    "pytest>=7.2.1",
+    "numpy>=1.16.0",
+    "scipy>=1.1.0",
+    "scikit-learn>=0.24",
+    "tasklogger>=1.0",
+    "graphtools>=1.5.3",
+    "matplotlib>=3.0",
+    "s_gd2>=1.8.1",
+    "pygsp",
+    "Deprecated"
 ]
 
 [project.urls]

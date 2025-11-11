@@ -1,16 +1,13 @@
 # author: Daniel Burkhardt <daniel.burkhardt@yale.edu>
 # (C) 2017 Krishnaswamy Lab GPLv2
 
-from __future__ import print_function, division
 from sklearn import manifold
 from sklearn.decomposition import PCA
 from scipy.spatial.distance import pdist, squareform
 import scipy.spatial
 import numpy as np
 from deprecated import deprecated
-
 import tasklogger
-import scprep
 import s_gd2
 
 _logger = tasklogger.get_tasklogger("graphtools")
@@ -53,7 +50,6 @@ def classic(D, n_components=2, random_state=None):
     return Y
 
 
-@scprep.utils._with_pkg(pkg="s_gd2", min_version="1.3")
 def sgd(D, n_components=2, random_state=None, init=None):
     """Metric MDS using stochastic gradient descent
 

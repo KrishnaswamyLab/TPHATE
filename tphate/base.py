@@ -1,5 +1,3 @@
-from future.utils import with_metaclass
-from builtins import super
 from copy import copy as shallow_copy
 import numpy as np
 import abc
@@ -419,7 +417,7 @@ class Data(Base):
             )
 
 
-class BaseGraph(with_metaclass(abc.ABCMeta, Base)):
+class BaseGraph(Base, metaclass=abc.ABCMeta):
     """Parent graph class
 
     Parameters
@@ -898,9 +896,7 @@ class BaseGraph(with_metaclass(abc.ABCMeta, Base)):
                 "Expected `distance` in ['constant', 'data', 'affinity']. "
                 "Got {}".format(distance)
             )
-        P = graph
-        P=sparse.csgraph.shortest_path(D,method=method)
-        #P = graph_shortest_path(D, method=method)
+        P = sparse.csgraph.shortest_path(D, method=method)
         # symmetrize for numerical error
         P = (P + P.T) / 2
         # sklearn returns 0 if no path exists
@@ -910,7 +906,7 @@ class BaseGraph(with_metaclass(abc.ABCMeta, Base)):
         return P
 
 
-class PyGSPGraph(with_metaclass(abc.ABCMeta, pygsp.graphs.Graph, Base)):
+class PyGSPGraph(pygsp.graphs.Graph, Base, metaclass=abc.ABCMeta):
     """Interface between BaseGraph and PyGSP.
 
     All graphs should possess these matrices. We inherit a lot
@@ -965,7 +961,7 @@ class PyGSPGraph(with_metaclass(abc.ABCMeta, pygsp.graphs.Graph, Base)):
         return weight
 
 
-class DataGraph(with_metaclass(abc.ABCMeta, Data, BaseGraph)):
+class DataGraph(Data, BaseGraph, metaclass=abc.ABCMeta):
     """Abstract class for graphs built from a dataset
 
     Parameters

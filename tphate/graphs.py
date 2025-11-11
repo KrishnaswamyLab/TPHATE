@@ -1,5 +1,3 @@
-from __future__ import division
-from builtins import super
 import numpy as np
 from sklearn.neighbors import NearestNeighbors
 from sklearn.utils.extmath import randomized_svd
