@@ -23,6 +23,7 @@ authors = [
   { name="Erica Busch", email="ericalindseybusch@gmail.com" },
 ]
 description = "Temporal PHATE (TPHATE) is a python package for learning robust manifold representations of timeseries data with high temporal autocorrelation."
+license-files = ["LICENSE.md"]
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
